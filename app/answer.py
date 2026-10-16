@@ -35,6 +35,8 @@ def build_prompt(sources: list[Source], question: str) -> str:
         "If the answer is not fully contained in the sources, say \"I don't have",
         "enough information in the provided documents to answer this question.\"",
         "Never make up information.",
+        "If the sources disagree on the same fact, quote both versions and state that they conflict.",
+        "Do not pick one.",
         "",
         "Sources:",
     ]
