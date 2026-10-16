@@ -1,0 +1,42 @@
+[
+  {
+    "question": "What is the minimum graduation credit requirement?",
+    "keywords": ["credits", "graduation", "120"]
+  },
+  {
+    "question": "How do I renew my hostel?",
+    "keywords": ["hostel", "renewal", "identity proof", "fee receipt"]
+  },
+  {
+    "question": "What is the scholarship eligibility?",
+    "keywords": ["scholarship", "CGPA", "8.5", "eligibility"]
+  },
+  {
+    "question": "What is the attendance policy?",
+    "keywords": ["attendance", "75", "percent"]
+  },
+  {
+    "question": "When does registration open?",
+    "keywords": ["registration", "June", "opens"]
+  },
+  {
+    "question": "What documents do I need to submit?",
+    "keywords": ["documents", "submit", "application"]
+  },
+  {
+    "question": "What is the deadline for fee payment?",
+    "keywords": ["fee", "payment", "deadline"]
+  },
+  {
+    "question": "Can I change my department after enrollment?",
+    "keywords": ["department", "change", "enrollment"]
+  },
+  {
+    "question": "What is the procedure for issuing transcripts?",
+    "keywords": ["transcript", "procedure", "issue"]
+  },
+  {
+    "question": "How do I apply for a leave of absence?",
+    "keywords": ["leave", "absence", "apply"]
+  }
+]

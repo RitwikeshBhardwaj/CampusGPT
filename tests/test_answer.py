@@ -88,3 +88,14 @@ def test_generate_answer_refusal_path(monkeypatch):
     assert result.answer == "I don't have enough information in the provided documents to answer this question."
     assert result.closest_source is not None
     assert result.closest_source.doc_name == "a.pdf"
+
+
+def test_parse_citations_drops_hallucinated_large_numbers():
+    """[99] (or any number > len(sources)) is dropped; answer text is preserved."""
+    srcs = [Source(doc_id=1, doc_name="reg.pdf", page=4, chunk_index=0, text="120 credits.", score=0.9)]
+    # Only hallucinated numbers — should return zero citations; meaningful text preserved
+    text = "See [99] for more."
+    cleaned, citations = parse_citations(text, srcs)
+    assert len(citations) == 0
+    # The [99] marker is removed; the rest of the text is preserved
+    assert "See" in cleaned and "for more" in cleaned

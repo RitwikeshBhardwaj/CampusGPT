@@ -6,6 +6,7 @@ import chromadb
 from sentence_transformers import SentenceTransformer
 
 from app.ingest import Chunk
+from app.log_config import log_retrieval
 
 
 COLLECTION_NAME = "campusgpt_chunks"
@@ -90,4 +91,10 @@ def retrieve(
                 score=score,
             )
         )
+    log_retrieval(
+        query=query,
+        top_k=top_k,
+        num_results=len(sources),
+        persist_dir=str(persist_dir),
+    )
     return sources

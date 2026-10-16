@@ -3,13 +3,13 @@
 from fastapi.testclient import TestClient
 
 from app.auth import hash_password
+from app.config import settings
 from app.db import create_user, init_db
 
 
 def _make_app(tmp_path, monkeypatch):
     """Build a minimal app with only the auth router and an isolated data dir."""
     monkeypatch.setenv("CAMPUSGPT_DATA_DIR", str(tmp_path))
-    from app.config import settings
     settings.data_dir = tmp_path
     init_db(settings.db_path)
 
@@ -26,7 +26,7 @@ def _seed_user(db_path, username="alice", password="pw123", role="admin"):
 
 def test_login_success_sets_cookie(tmp_path, monkeypatch):
     app = _make_app(tmp_path, monkeypatch)
-    db = __import__("app.config", fromlist=["settings"]).settings.db_path
+    db = settings.db_path
     uid = _seed_user(db)
 
     client = TestClient(app)
@@ -42,7 +42,7 @@ def test_login_success_sets_cookie(tmp_path, monkeypatch):
 
 def test_login_wrong_password(tmp_path, monkeypatch):
     app = _make_app(tmp_path, monkeypatch)
-    db = __import__("app.config", fromlist=["settings"]).settings.db_path
+    db = settings.db_path
     _seed_user(db)
 
     client = TestClient(app)
@@ -74,7 +74,7 @@ def test_me_requires_auth(tmp_path, monkeypatch):
 
 def test_me_after_login(tmp_path, monkeypatch):
     app = _make_app(tmp_path, monkeypatch)
-    db = __import__("app.config", fromlist=["settings"]).settings.db_path
+    db = settings.db_path
     uid = _seed_user(db, role="student")
 
     client = TestClient(app)
@@ -88,7 +88,7 @@ def test_me_after_login(tmp_path, monkeypatch):
 
 def test_logout_clears_session(tmp_path, monkeypatch):
     app = _make_app(tmp_path, monkeypatch)
-    db = __import__("app.config", fromlist=["settings"]).settings.db_path
+    db = settings.db_path
     _seed_user(db)
 
     client = TestClient(app)

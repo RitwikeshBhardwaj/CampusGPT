@@ -4,6 +4,7 @@ from pathlib import Path
 
 import pytest
 
+from app.config import settings
 from tests.conftest import write_sample_pdf
 
 
@@ -16,10 +17,8 @@ def test_ingest_pdf_full_flow(tmp_path, monkeypatch):
     pdf_dir.mkdir(parents=True)
     chroma_dir.mkdir(parents=True)
     monkeypatch.setenv("CAMPUSGPT_DATA_DIR", str(data_dir))
-
-    # Reload settings BEFORE importing ingest_pipeline
-    from app import config
-    importlib.reload(config)
+    settings.data_dir = data_dir
+    settings.ensure_dirs()
 
     from app.ingest_pipeline import ingest_pdf
 
