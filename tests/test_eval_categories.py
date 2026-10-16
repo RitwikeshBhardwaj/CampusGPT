@@ -7,7 +7,8 @@ test asserts the model is never called for out-of-scope questions.
 
 import pytest
 
-from app.retrieve import retrieve, add_chunks
+from app.answer import generate_answer, should_refuse
+from app.retrieve import Source, retrieve, add_chunks
 from app.ingest import Chunk
 
 
@@ -46,3 +47,29 @@ def test_multi_document_synthesis_retrieves_both_files(chroma_dir):
     doc_names = {r.doc_name for r in results}
     assert "handbook.pdf" in doc_names, f"handbook missing; got {doc_names}"
     assert "fees.pdf" in doc_names, f"fees missing; got {doc_names}"
+
+
+def test_out_of_scope_refuses_without_calling_llm(monkeypatch):
+    """Out-of-scope question refuses via should_refuse; LLM is never called."""
+    sources = [
+        Source(1, "handbook.pdf", 1, 0, "Tuition is 45000 per semester.", 0.20),
+        Source(2, "handbook.pdf", 2, 0, "Hostel fee is 12000 per semester.", 0.15),
+    ]
+    assert should_refuse(sources) is True
+
+    called = {"llm": False}
+
+    async def fake_post(*args, **kwargs):
+        called["llm"] = True
+        raise AssertionError("LLM should not be called for an out-of-scope question")
+
+    import app.answer as answer_mod
+
+    monkeypatch.setattr(answer_mod.httpx.AsyncClient, "post", fake_post)
+
+    result = generate_answer("What is the capital of France?", sources)
+    assert result.refused is True
+    assert result.answer == "I don't have enough information in the provided documents to answer this question."
+    assert result.citations == []
+    assert called["llm"] is False
+    assert result.closest_source is not None
