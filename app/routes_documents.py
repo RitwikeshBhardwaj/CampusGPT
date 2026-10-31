@@ -11,7 +11,8 @@ from app.auth import require_role, require_user
 from app.config import settings
 from app.db import delete_document as db_delete_document
 from app.db import get_document, init_db, list_documents
-from app.ingest_pipeline import ingest_pdf
+from app.ingest_pipeline import ingest_document
+from app.document_utils import DocumentExtractionError
 from app.pdf_utils import PDFExtractionError
 from app.retrieve import get_collection
 
@@ -55,14 +56,21 @@ async def upload_document(
     file: UploadFile = File(...),
     admin: dict = Depends(require_role("admin")),
 ):
-    """Upload a PDF document. Admin only."""
+    """Upload a document (PDF, DOCX, or TXT). Admin only."""
     settings.ensure_dirs()
     init_db(settings.db_path)
 
-    if not file.filename or not file.filename.lower().endswith(".pdf"):
+    if not file.filename:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Only PDF files are accepted",
+            detail="No filename provided",
+        )
+
+    ext = file.filename.lower().split('.')[-1]
+    if ext not in ("pdf", "docx", "txt"):
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Only PDF, DOCX, and TXT files are accepted",
         )
 
     safe_name = Path(file.filename).name
@@ -72,9 +80,10 @@ async def upload_document(
             detail="Invalid filename",
         )
 
-    # Stage the uploaded file in a temp file; ingest_pdf will copy it into pdf_dir.
+    # Stage the uploaded file in a temp file; ingest_document will copy it into pdf_dir.
+    suffix = f".{ext}"
     try:
-        with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as tmp:
+        with tempfile.NamedTemporaryFile(suffix=suffix, delete=False) as tmp:
             shutil.copyfileobj(file.file, tmp)
             tmp_path = Path(tmp.name)
     except Exception:
@@ -82,8 +91,8 @@ async def upload_document(
         raise
 
     try:
-        result = ingest_pdf(tmp_path, safe_name)
-    except PDFExtractionError as e:
+        result = ingest_document(tmp_path, safe_name)
+    except (PDFExtractionError, DocumentExtractionError) as e:
         tmp_path.unlink(missing_ok=True)
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
@@ -93,7 +102,7 @@ async def upload_document(
         tmp_path.unlink(missing_ok=True)
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Failed to ingest PDF",
+            detail="Failed to ingest document",
         )
     finally:
         tmp_path.unlink(missing_ok=True)

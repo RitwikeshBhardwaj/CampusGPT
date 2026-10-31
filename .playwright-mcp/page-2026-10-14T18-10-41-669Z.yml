@@ -1,0 +1,10 @@
+- generic [ref=f5e3]:
+  - heading "CampusGPT" [level=1] [ref=f5e4]
+  - generic [ref=f5e5]:
+    - generic [ref=f5e6]:
+      - text: Username
+      - textbox [ref=f5e7]
+    - generic [ref=f5e8]:
+      - text: Password
+      - textbox [ref=f5e9]
+    - button "Log in" [ref=f5e10]

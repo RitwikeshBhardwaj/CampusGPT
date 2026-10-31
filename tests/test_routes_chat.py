@@ -55,8 +55,8 @@ def test_chat_creates_conversation_and_persists_messages(tmp_path, monkeypatch):
     client = _make_authenticated_client(app, "alice", "pw123")
 
     # Stub retrieve + generate_answer to avoid Ollama / Chroma.
-    with patch("app.routes_chat.retrieve") as mock_retrieve, \
-         patch("app.routes_chat.generate_answer") as mock_generate:
+    with patch("app.chat_service.retrieve") as mock_retrieve, \
+         patch("app.chat_service.generate_answer") as mock_generate:
         from app.models import Citation
         from app.answer import AnswerResult
         from app.retrieve import Source
@@ -107,8 +107,8 @@ def test_chat_persists_refusal(tmp_path, monkeypatch):
 
     client = _make_authenticated_client(app, "alice", "pw123")
 
-    with patch("app.routes_chat.retrieve") as mock_retrieve, \
-         patch("app.routes_chat.generate_answer") as mock_generate:
+    with patch("app.chat_service.retrieve") as mock_retrieve, \
+         patch("app.chat_service.generate_answer") as mock_generate:
         from app.models import Citation
         from app.answer import AnswerResult
         from app.retrieve import Source
@@ -153,8 +153,8 @@ def test_chat_ownership_enforced(tmp_path, monkeypatch):
 
     # Alice creates a conversation by chatting once.
     client1 = _make_authenticated_client(app, "alice", "pw123")
-    with patch("app.routes_chat.retrieve") as mock_retrieve, \
-         patch("app.routes_chat.generate_answer") as mock_generate:
+    with patch("app.chat_service.retrieve") as mock_retrieve, \
+         patch("app.chat_service.generate_answer") as mock_generate:
         from app.answer import AnswerResult
         from app.retrieve import Source
 
@@ -200,8 +200,8 @@ def test_chat_uses_existing_conversation(tmp_path, monkeypatch):
     _seed_user(db, "alice", "pw123", "student")
 
     client = _make_authenticated_client(app, "alice", "pw123")
-    with patch("app.routes_chat.retrieve") as mock_retrieve, \
-         patch("app.routes_chat.generate_answer") as mock_generate:
+    with patch("app.chat_service.retrieve") as mock_retrieve, \
+         patch("app.chat_service.generate_answer") as mock_generate:
         from app.answer import AnswerResult
         from app.retrieve import Source
 
@@ -220,3 +220,95 @@ def test_chat_uses_existing_conversation(tmp_path, monkeypatch):
     assert len(msgs) == 4  # 2 user, 2 assistant
     assert msgs[0]["content"] == "first"
     assert msgs[2]["content"] == "second"
+
+
+def _sse_events(text: str) -> list[dict]:
+    events = []
+    for line in text.splitlines():
+        if line.startswith("data: "):
+            events.append(__import__("json").loads(line[len("data: "):]))
+    return events
+
+
+def test_chat_stream_emits_tokens_then_final_and_persists_full_answer(tmp_path, monkeypatch):
+    """Tokens arrive as their own events before citations, and the saved message is the whole answer.
+
+    Fails if the stream buffers the answer into one event, drops a token, or persists a partial answer.
+    """
+    app = _make_app(tmp_path, monkeypatch)
+    db = settings.db_path
+    _seed_user(db, "alice", "pw123", "student")
+    client = _make_authenticated_client(app, "alice", "pw123")
+
+    async def fake_tokens(prompt: str):
+        for token in ("Registration opens ", "June 1 [1]."):
+            yield token
+
+    with patch("app.chat_service.retrieve") as mock_retrieve, \
+         patch("app.chat_service.stream_ollama", fake_tokens):
+        from app.retrieve import Source
+
+        mock_retrieve.return_value = [
+            Source(
+                doc_id=1, doc_name="handbook.pdf", page=1,
+                chunk_index=0, text="Registration opens June 1.", score=0.8,
+            )
+        ]
+        with client.stream(
+            "POST", "/api/chat/stream", json={"question": "When does registration open?"}
+        ) as response:
+            assert response.status_code == 200
+            assert response.headers["content-type"].startswith("text/event-stream")
+            events = _sse_events("".join(response.iter_text()))
+
+    token_events = [e for e in events if e["type"] == "token"]
+    assert [e["text"] for e in token_events] == ["Registration opens ", "June 1 [1]."]
+    assert events.index(token_events[0]) < events.index(token_events[-1])
+
+    final = events[-1]
+    assert final["type"] == "final"
+    assert final["answer"] == "Registration opens June 1 [1]."
+    assert final["refused"] is False
+    assert final["citations"][0]["doc_name"] == "handbook.pdf"
+
+    msgs = get_messages(db, conv_id=1, user_id=1)
+    assert msgs[1]["role"] == "assistant"
+    assert msgs[1]["content"] == "Registration opens June 1 [1]."
+    assert msgs[1]["citations_json"] is not None
+
+
+def test_chat_stream_refusal_emits_no_tokens(tmp_path, monkeypatch):
+    """A low-confidence question is refused as a single final event, with no token events and no LLM call."""
+    app = _make_app(tmp_path, monkeypatch)
+    db = settings.db_path
+    _seed_user(db, "alice", "pw123", "student")
+    client = _make_authenticated_client(app, "alice", "pw123")
+
+    called = {"n": 0}
+
+    async def fake_tokens(prompt: str):
+        called["n"] += 1
+        yield "should not stream"
+
+    with patch("app.chat_service.retrieve") as mock_retrieve, \
+         patch("app.chat_service.stream_ollama", fake_tokens):
+        from app.retrieve import Source
+
+        mock_retrieve.return_value = [
+            Source(
+                doc_id=1, doc_name="handbook.pdf", page=1,
+                chunk_index=0, text="About something else entirely.", score=0.1,
+            )
+        ]
+        with client.stream(
+            "POST", "/api/chat/stream", json={"question": "What's the weather?"}
+        ) as response:
+            events = _sse_events("".join(response.iter_text()))
+
+    assert called["n"] == 0
+    assert [e["type"] for e in events] == ["final"]
+    assert events[0]["refused"] is True
+    assert events[0]["citations"] == []
+
+    msgs = get_messages(db, conv_id=1, user_id=1)
+    assert msgs[1]["refused"] == 1

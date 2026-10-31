@@ -1,0 +1,14 @@
+- generic [ref=f3e3]:
+  - complementary [ref=f3e4]:
+    - generic [ref=f3e5]: CampusGPT
+    - button "New chat" [ref=f3e6] [cursor=pointer]
+    - generic [ref=f3e7]:
+      - button "What is the attendance requirement for graduation?" [ref=f3e8] [cursor=pointer]
+      - button "What are the hostel rules for hostel allotment documents?" [ref=f3e9] [cursor=pointer]
+    - button "Log out" [ref=f3e11] [cursor=pointer]
+  - main [ref=f3e12]:
+    - paragraph [ref=f3e14]: Ask something about the university.
+    - generic [ref=f3e15]:
+      - textbox "Question" [ref=f3e16]:
+        - /placeholder: Ask a question…
+      - button "Send" [ref=f3e17] [cursor=pointer]

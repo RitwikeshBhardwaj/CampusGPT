@@ -97,10 +97,10 @@ def test_upload_non_pdf_rejected(tmp_path, monkeypatch):
     client = _make_authenticated_client(app, "admin", "admin123")
     r = client.post(
         "/api/documents",
-        files={"file": ("test.txt", io.BytesIO(b"not a pdf"), "text/plain")},
+        files={"file": ("test.jpg", io.BytesIO(b"not a document"), "image/jpeg")},
     )
     assert r.status_code == 400
-    assert "PDF" in r.json()["detail"]
+    assert "PDF, DOCX, and TXT" in r.json()["detail"]
 
 
 def test_list_documents(tmp_path, monkeypatch):

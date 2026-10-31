@@ -1,0 +1,12 @@
+- generic [ref=f4e3]:
+  - generic [ref=f4e4]:
+    - heading "Admin" [level=1] [ref=f4e5]
+    - button "Back to chat" [ref=f4e6] [cursor=pointer]
+    - button "Log out" [ref=f4e7] [cursor=pointer]
+  - generic [ref=f4e8]:
+    - button "Documents" [ref=f4e9] [cursor=pointer]
+    - button "Users" [ref=f4e10] [cursor=pointer]
+  - generic [ref=f4e11]:
+    - heading "Documents" [level=2] [ref=f4e12]
+    - button "Upload a PDF" [ref=f4e13]
+    - list

@@ -1,0 +1,19 @@
+- generic [ref=f5e31]:
+  - heading "Admin" [level=1] [ref=f5e32]
+  - generic [ref=f5e33]:
+    - button "Documents" [ref=f5e34]
+    - button "Users" [active] [ref=f5e35]
+    - button "Logout" [ref=f5e36]
+  - heading "Create User" [level=2] [ref=f5e45]
+  - generic [ref=f5e46]:
+    - textbox "username" [ref=f5e47]
+    - textbox "password" [ref=f5e48]
+    - combobox [ref=f5e49]:
+      - option "student" [selected]
+      - option "admin"
+    - button "Create" [ref=f5e50]
+  - heading "Users" [level=3] [ref=f5e51]
+  - list [ref=f5e52]:
+    - listitem [ref=f5e53]:
+      - text: admin (admin)
+      - button "Delete" [ref=f5e54]

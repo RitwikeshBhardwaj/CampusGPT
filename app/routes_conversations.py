@@ -12,6 +12,7 @@ from app.db import (
     get_messages,
     init_db,
     list_conversations,
+    rename_conversation,
 )
 
 router = APIRouter(prefix="/api/conversations", tags=["conversations"])
@@ -19,6 +20,13 @@ router = APIRouter(prefix="/api/conversations", tags=["conversations"])
 
 class ConversationCreate(BaseModel):
     title: str | None = None
+
+
+class ConversationRename(BaseModel):
+    title: str
+
+
+MAX_TITLE_LENGTH = 120  # module-level constant for reuse in validation
 
 
 class ConversationResponse(BaseModel):
@@ -69,6 +77,28 @@ def create_conversation_route(body: ConversationCreate, user: dict = Depends(req
     """Create a new conversation for the current user."""
     init_db(settings.db_path)
     conv_id = create_conversation(settings.db_path, user["id"], body.title)
+    conv = get_conversation(settings.db_path, conv_id, user["id"])
+    return _to_conv_response(conv)
+
+
+@router.patch("/{conv_id}", response_model=ConversationResponse)
+def rename_conversation_route(
+    conv_id: int, body: ConversationRename, user: dict = Depends(require_user)
+):
+    """Rename a conversation. Owner only."""
+    title = body.title.strip()
+    if not title or len(title) > MAX_TITLE_LENGTH:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=f"Title must be 1–{MAX_TITLE_LENGTH} characters",
+        )
+    init_db(settings.db_path)
+    ok = rename_conversation(settings.db_path, conv_id, user["id"], title)
+    if not ok:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Conversation not found",
+        )
     conv = get_conversation(settings.db_path, conv_id, user["id"])
     return _to_conv_response(conv)
 

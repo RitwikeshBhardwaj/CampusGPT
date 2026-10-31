@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom"
 import { useAuth } from "../auth"
 import * as api from "../api"
 import { Message } from "../components/Message"
+import { BookOpening } from "../components/BookOpening"
+
+const UNTITLED = "Untitled"
 
 export function Chat() {
   const { user, logout } = useAuth()
@@ -13,7 +16,11 @@ export function Chat() {
   const [input, setInput] = useState("")
   const [loading, setLoading] = useState(false)
   const [creating, setCreating] = useState(false)
+  const [openingBook, setOpeningBook] = useState(false)
+  const [editingId, setEditingId] = useState<number | null>(null)
+  const [draftTitle, setDraftTitle] = useState("")
   const bottomRef = useRef<HTMLDivElement>(null)
+  const nextId = useRef(1)
 
   useEffect(() => {
     listConversations()
@@ -45,10 +52,29 @@ export function Chat() {
       setConversations((prev) => [...prev, conv])
       setSelectedConvId(conv.id)
       setMessages([])
+      setOpeningBook(true)
     } catch {
       // ignore
     } finally {
       setCreating(false)
+    }
+  }
+
+  function startRename(c: api.Conversation) {
+    setEditingId(c.id)
+    setDraftTitle(c.title ?? "")
+  }
+
+  async function commitRename(id: number) {
+    const title = draftTitle.trim()
+    setEditingId(null)
+    if (!title) return
+    const previous = conversations
+    setConversations((prev) => prev.map((c) => (c.id === id ? { ...c, title } : c)))
+    try {
+      await api.renameConversation(id, title)
+    } catch {
+      setConversations(previous)
     }
   }
 
@@ -60,22 +86,42 @@ export function Chat() {
 
     const convId = selectedConvId ?? conversations[0]?.id ?? null
 
-    // Optimistically add user message
-    setMessages((prev) => [...prev, {
-      id: 0, conversation_id: convId ?? 0, role: "user", content: question,
-      citations_json: null, refused: false, created_at: new Date().toISOString(),
-    }])
+    const userId = nextId.current++
+    const assistantId = nextId.current++
+
+    setMessages((prev) => [
+      ...prev,
+      {
+        id: userId, conversation_id: convId ?? 0, role: "user", content: question,
+        citations_json: null, refused: false, created_at: new Date().toISOString(),
+      },
+      {
+        id: assistantId, conversation_id: convId ?? 0, role: "assistant",
+        content: "", citations_json: null, refused: false,
+        created_at: new Date().toISOString(),
+      },
+    ])
 
     try {
-      const resp = await api.sendChat(question, convId)
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: prev.length + 1, conversation_id: convId ?? 0, role: "assistant",
-          content: resp.answer, citations_json: JSON.stringify(resp.citations),
-          refused: resp.refused, created_at: new Date().toISOString(),
-        },
-      ])
+      await api.streamChat(question, convId, {
+        onToken: (text) =>
+          setMessages((prev) =>
+            prev.map((m) => (m.id === assistantId ? { ...m, content: m.content + text } : m))
+          ),
+        onFinal: (resp) =>
+          setMessages((prev) =>
+            prev.map((m) =>
+              m.id === assistantId
+                ? {
+                    ...m,
+                    content: resp.answer,
+                    citations_json: JSON.stringify(resp.citations),
+                    refused: resp.refused,
+                  }
+                : m
+            )
+          ),
+      })
       if (!selectedConvId) {
         // New conversation created — update the list and select it
         await listConversations()
@@ -93,51 +139,79 @@ export function Chat() {
   }
 
   return (
-    <div style={{ display: "flex", height: "100vh" }}>
-      {/* Sidebar */}
-      <div style={{ width: 220, borderRight: "1px solid #ddd", padding: 8, overflowY: "auto" }}>
-        <button onClick={newChat} disabled={creating} style={{ width: "100%", marginBottom: 8 }}>
-          {creating ? "Creating…" : "New Chat"}
+    <div className="shell">
+      <aside className="sidebar glass">
+        <div className="wordmark">CampusGPT</div>
+        <button className="primary" onClick={newChat} disabled={creating}>
+          {creating ? "Opening…" : "New chat"}
         </button>
-        {conversations.map((c) => (
-          <div
-            key={c.id}
-            onClick={() => selectConversation(c.id)}
-            style={{ padding: 4, cursor: "pointer", borderBottom: "1px solid #eee" }}
-          >
-            {c.title ?? "Untitled"}
-          </div>
-        ))}
-        <button onClick={logout} style={{ marginTop: 16, width: "100%" }}>
-          Logout
-        </button>
-      </div>
+        <div className="conv-list">
+          {conversations.map((c) =>
+            editingId === c.id ? (
+              <input
+                key={c.id}
+                className="rename-input"
+                value={draftTitle}
+                placeholder={UNTITLED}
+                autoFocus
+                aria-label="Chat name"
+                onChange={(e) => setDraftTitle(e.target.value)}
+                onBlur={() => commitRename(c.id)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") e.currentTarget.blur()
+                  if (e.key === "Escape") setEditingId(null)
+                }}
+              />
+            ) : (
+              <button
+                key={c.id}
+                className={
+                  "conv" +
+                  (c.id === selectedConvId ? " active" : "") +
+                  (c.title ? "" : " untitled")
+                }
+                onClick={() => selectConversation(c.id)}
+                onDoubleClick={() => startRename(c)}
+                title="Double-click to rename"
+              >
+                {c.title ?? UNTITLED}
+              </button>
+            )
+          )}
+        </div>
+        <div className="sidebar-footer">
+          {user?.role === "admin" && (
+            <button className="quiet" onClick={() => navigate("/admin")}>Admin panel</button>
+          )}
+          <button className="quiet" onClick={logout}>Log out</button>
+        </div>
+      </aside>
 
-      {/* Main */}
-      <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-        <div style={{ flex: 1, overflowY: "auto", padding: 8 }}>
+      <main className="stage">
+        {openingBook && <BookOpening onDone={() => setOpeningBook(false)} />}
+        <div className="transcript">
+          {messages.length === 0 && !openingBook && (
+            <p className="empty-hint">Ask something about the university.</p>
+          )}
           {messages.map((m, i) => (
-            <div key={i} style={{
-              textAlign: m.role === "user" ? "right" : "left",
-              padding: "0 8px",
-            }}>
+            <div key={i} className={"row " + m.role}>
               <Message message={m} />
             </div>
           ))}
           <div ref={bottomRef} />
-          {loading && <p>Thinking…</p>}
+          {loading && <p className="thinking">Thinking…</p>}
         </div>
-        <div style={{ padding: 8, borderTop: "1px solid #ddd", display: "flex", gap: 8 }}>
+        <div className="composer glass">
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && send()}
             placeholder="Ask a question…"
-            style={{ flex: 1 }}
+            aria-label="Question"
           />
-          <button onClick={send} disabled={loading}>Send</button>
+          <button className="primary" onClick={send} disabled={loading}>Send</button>
         </div>
-      </div>
+      </main>
     </div>
   )
 }

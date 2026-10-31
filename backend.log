@@ -1,0 +1,412 @@
+INFO:     Started server process [52388]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:60718 - "GET /api/health HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 18:25:33,576", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-3", "event": "request", "method": "GET", "path": "/api/health", "status_code": 200, "duration_ms": 457.17, "user_id": null}
+INFO:     127.0.0.1:60753 - "GET /api/health/deep HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 18:26:42,101", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-4", "event": "request", "method": "GET", "path": "/api/health/deep", "status_code": 200, "duration_ms": 15.03, "user_id": null}
+INFO:     127.0.0.1:60826 - "GET / HTTP/1.1" 404 Not Found
+{"timestamp": "2026-10-28 18:28:42,830", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-5", "event": "request", "method": "GET", "path": "/", "status_code": 404, "duration_ms": 28.76, "user_id": null}
+INFO:     127.0.0.1:60826 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+{"timestamp": "2026-10-28 18:28:42,848", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-6", "event": "request", "method": "GET", "path": "/favicon.ico", "status_code": 404, "duration_ms": 0.33, "user_id": null}
+INFO:     127.0.0.1:60857 - "GET /api/auth/me HTTP/1.1" 401 Unauthorized
+{"timestamp": "2026-10-28 18:28:57,466", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-7", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 401, "duration_ms": 4.27, "user_id": null}
+INFO:     127.0.0.1:60859 - "GET /api/auth/me HTTP/1.1" 401 Unauthorized
+{"timestamp": "2026-10-28 18:28:57,470", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-8", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 401, "duration_ms": 0.94, "user_id": null}
+INFO:     127.0.0.1:60874 - "POST /api/auth/login HTTP/1.1" 401 Unauthorized
+{"timestamp": "2026-10-28 18:29:05,453", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-9", "event": "request", "method": "POST", "path": "/api/auth/login", "status_code": 401, "duration_ms": 207.12, "user_id": null}
+INFO:     127.0.0.1:60877 - "POST /api/auth/login HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 18:29:19,070", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-10", "event": "request", "method": "POST", "path": "/api/auth/login", "status_code": 200, "duration_ms": 205.32, "user_id": null}
+INFO:     127.0.0.1:60880 - "GET /api/conversations HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 18:29:19,080", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-11", "event": "request", "method": "GET", "path": "/api/conversations", "status_code": 200, "duration_ms": 1.81, "user_id": null}
+INFO:     127.0.0.1:60883 - "GET /api/conversations HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 18:29:19,083", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-12", "event": "request", "method": "GET", "path": "/api/conversations", "status_code": 200, "duration_ms": 0.82, "user_id": null}
+INFO:     127.0.0.1:60888 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 18:29:23,200", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-13", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 7.14, "user_id": null}
+INFO:     127.0.0.1:60894 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 18:29:23,210", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-15", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 3.88, "user_id": null}
+INFO:     127.0.0.1:60893 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 18:29:23,210", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-14", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 4.98, "user_id": null}
+INFO:     127.0.0.1:60897 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 18:29:23,216", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-16", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 1.74, "user_id": null}
+INFO:     127.0.0.1:60901 - "GET /api/conversations HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 18:29:30,547", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-17", "event": "request", "method": "GET", "path": "/api/conversations", "status_code": 200, "duration_ms": 3.11, "user_id": null}
+INFO:     127.0.0.1:60904 - "GET /api/conversations HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 18:29:30,555", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-18", "event": "request", "method": "GET", "path": "/api/conversations", "status_code": 200, "duration_ms": 2.67, "user_id": null}
+INFO:     127.0.0.1:60911 - "GET /api/conversations/4/messages HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 18:29:33,082", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-19", "event": "request", "method": "GET", "path": "/api/conversations/4/messages", "status_code": 200, "duration_ms": 9.22, "user_id": null}
+{"timestamp": "2026-10-28 18:29:40,129", "level": "INFO", "logger": "campusgpt", "message": "chat_request", "lineno": 35, "funcName": "_prepare_chat", "taskName": "Task-20", "event": "chat_request", "user_id": 1, "question": "fee structure?", "conversation_id": 4}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 10764.00it/s]
+{"timestamp": "2026-10-28 18:29:52,456", "level": "INFO", "logger": "campusgpt", "message": "retrieval", "lineno": 46, "funcName": "log_retrieval", "taskName": "Task-20", "event": "retrieval", "query": "fee structure?", "top_k": 6, "num_results": 6, "persist_dir": "data/chroma"}
+INFO:     127.0.0.1:60914 - "POST /api/chat/stream HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 18:30:00,165", "level": "INFO", "logger": "campusgpt", "message": "chat_response", "lineno": 60, "funcName": "log_chat_response", "taskName": "starlette.responses.StreamingResponse.__call__.<locals>.wrap", "event": "chat_response", "user_id": 1, "refused": false, "citations_count": 4, "warning": null}
+{"timestamp": "2026-10-28 18:30:00,173", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-20", "event": "request", "method": "POST", "path": "/api/chat/stream", "status_code": 200, "duration_ms": 20047.77, "user_id": null}
+INFO:     127.0.0.1:63134 - "POST /api/documents HTTP/1.1" 401 Unauthorized
+{"timestamp": "2026-10-28 18:34:58,787", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-24", "event": "request", "method": "POST", "path": "/api/documents", "status_code": 401, "duration_ms": 52.67, "user_id": null}
+INFO:     127.0.0.1:51500 - "POST /api/documents HTTP/1.1" 401 Unauthorized
+{"timestamp": "2026-10-28 18:40:13,324", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-25", "event": "request", "method": "POST", "path": "/api/documents", "status_code": 401, "duration_ms": 3.44, "user_id": null}
+INFO:     127.0.0.1:51872 - "POST /api/auth/login HTTP/1.1" 401 Unauthorized
+{"timestamp": "2026-10-28 18:40:38,474", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-26", "event": "request", "method": "POST", "path": "/api/auth/login", "status_code": 401, "duration_ms": 175.14, "user_id": null}
+INFO:     127.0.0.1:52457 - "POST /api/auth/login HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 18:41:17,796", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-27", "event": "request", "method": "POST", "path": "/api/auth/login", "status_code": 200, "duration_ms": 173.63, "user_id": null}
+INFO:     127.0.0.1:52462 - "POST /api/documents HTTP/1.1" 201 Created
+{"timestamp": "2026-10-28 18:41:18,890", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-28", "event": "request", "method": "POST", "path": "/api/documents", "status_code": 201, "duration_ms": 1093.01, "user_id": null}
+INFO:     127.0.0.1:62006 - "POST /api/auth/login HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 19:17:00,017", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-29", "event": "request", "method": "POST", "path": "/api/auth/login", "status_code": 200, "duration_ms": 175.28, "user_id": null}
+INFO:     127.0.0.1:62008 - "POST /api/documents HTTP/1.1" 201 Created
+{"timestamp": "2026-10-28 19:17:00,355", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-30", "event": "request", "method": "POST", "path": "/api/documents", "status_code": 201, "duration_ms": 337.29, "user_id": null}
+INFO:     127.0.0.1:62010 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 19:17:00,370", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-31", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 2.45, "user_id": null}
+INFO:     127.0.0.1:62116 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 19:23:41,905", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-32", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 8.48, "user_id": null}
+INFO:     127.0.0.1:62122 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 19:23:41,913", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-34", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 2.5, "user_id": null}
+INFO:     127.0.0.1:62119 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 19:23:41,913", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-33", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 3.68, "user_id": null}
+INFO:     127.0.0.1:62125 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 19:23:41,919", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-35", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 1.85, "user_id": null}
+INFO:     127.0.0.1:62412 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 19:37:17,395", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-36", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 5.93, "user_id": null}
+INFO:     127.0.0.1:62415 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 19:37:17,398", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-37", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 1.1, "user_id": null}
+INFO:     127.0.0.1:62418 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 19:37:17,414", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-38", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 3.37, "user_id": null}
+INFO:     127.0.0.1:62421 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 19:37:17,417", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-39", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 1.72, "user_id": null}
+INFO:     127.0.0.1:62431 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 19:37:30,226", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-40", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 3.45, "user_id": null}
+INFO:     127.0.0.1:62434 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 19:37:30,232", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-41", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 2.39, "user_id": null}
+INFO:     127.0.0.1:64660 - "GET /api/auth/me HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:04,244", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-42", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 200, "duration_ms": 8.57, "user_id": null}
+INFO:     127.0.0.1:64662 - "GET /api/auth/me HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:04,247", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-43", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 200, "duration_ms": 1.91, "user_id": null}
+INFO:     127.0.0.1:64664 - "GET /api/auth/me HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:04,249", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-44", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 200, "duration_ms": 0.66, "user_id": null}
+INFO:     127.0.0.1:64667 - "GET /api/auth/me HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:04,252", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-45", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 200, "duration_ms": 1.29, "user_id": null}
+INFO:     127.0.0.1:64668 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:04,254", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-46", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 2.69, "user_id": null}
+INFO:     127.0.0.1:64674 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:04,256", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-48", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 0.83, "user_id": null}
+INFO:     127.0.0.1:64672 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:04,256", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-47", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 1.15, "user_id": null}
+INFO:     127.0.0.1:64680 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:04,258", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-50", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 1.04, "user_id": null}
+INFO:     127.0.0.1:64678 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:04,258", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-49", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 1.27, "user_id": null}
+INFO:     127.0.0.1:64686 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:04,260", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-52", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 0.69, "user_id": null}
+INFO:     127.0.0.1:64684 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:04,260", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-51", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 1.02, "user_id": null}
+INFO:     127.0.0.1:64689 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:04,263", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-53", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 0.73, "user_id": null}
+INFO:     127.0.0.1:64694 - "GET /api/auth/me HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:04,369", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-54", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 200, "duration_ms": 1.43, "user_id": null}
+INFO:     127.0.0.1:64696 - "GET /api/auth/me HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:04,371", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-55", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 200, "duration_ms": 1.06, "user_id": null}
+INFO:     127.0.0.1:64699 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:04,376", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-56", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 2.01, "user_id": null}
+INFO:     127.0.0.1:64705 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:04,380", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-58", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 1.49, "user_id": null}
+INFO:     127.0.0.1:64704 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:04,380", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-57", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 2.38, "user_id": null}
+INFO:     127.0.0.1:64708 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:04,386", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-59", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 1.41, "user_id": null}
+INFO:     127.0.0.1:64795 - "GET /api/auth/me HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:44,922", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-60", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 200, "duration_ms": 1.48, "user_id": null}
+INFO:     127.0.0.1:64797 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:44,923", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-61", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 2.04, "user_id": null}
+INFO:     127.0.0.1:64799 - "GET /api/auth/me HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:44,925", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-62", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 200, "duration_ms": 1.41, "user_id": null}
+INFO:     127.0.0.1:64805 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:44,926", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-64", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 1.51, "user_id": null}
+INFO:     127.0.0.1:64803 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:44,926", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-63", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 1.83, "user_id": null}
+INFO:     127.0.0.1:64808 - "GET /api/auth/me HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:44,928", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-65", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 200, "duration_ms": 1.08, "user_id": null}
+INFO:     127.0.0.1:64814 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:44,928", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-67", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 1.03, "user_id": null}
+INFO:     127.0.0.1:64812 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:44,929", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-66", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 1.75, "user_id": null}
+INFO:     127.0.0.1:64818 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:44,932", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-68", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 1.52, "user_id": null}
+INFO:     127.0.0.1:64820 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:44,933", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-69", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 1.61, "user_id": null}
+INFO:     127.0.0.1:64823 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:44,936", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-70", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 1.04, "user_id": null}
+INFO:     127.0.0.1:64831 - "GET /api/auth/me HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:45,000", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-71", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 200, "duration_ms": 1.24, "user_id": null}
+INFO:     127.0.0.1:64833 - "GET /api/auth/me HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:45,003", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-72", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 200, "duration_ms": 1.51, "user_id": null}
+INFO:     127.0.0.1:64835 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:45,004", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-73", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 1.56, "user_id": null}
+INFO:     127.0.0.1:64838 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:45,008", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-74", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 2.49, "user_id": null}
+INFO:     127.0.0.1:64839 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:45,009", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-75", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 2.6, "user_id": null}
+INFO:     127.0.0.1:64842 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:10:45,014", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-76", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 1.69, "user_id": null}
+INFO:     127.0.0.1:65176 - "GET /api/auth/me HTTP/1.1" 401 Unauthorized
+{"timestamp": "2026-10-28 21:28:37,725", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-77", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 401, "duration_ms": 7.2, "user_id": null}
+INFO:     127.0.0.1:65178 - "GET /api/auth/me HTTP/1.1" 401 Unauthorized
+{"timestamp": "2026-10-28 21:28:37,729", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-78", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 401, "duration_ms": 0.69, "user_id": null}
+INFO:     127.0.0.1:65238 - "POST /api/auth/login HTTP/1.1" 401 Unauthorized
+{"timestamp": "2026-10-28 21:30:07,810", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-79", "event": "request", "method": "POST", "path": "/api/auth/login", "status_code": 401, "duration_ms": 205.0, "user_id": null}
+INFO:     127.0.0.1:65241 - "POST /api/auth/login HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:30:15,219", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-80", "event": "request", "method": "POST", "path": "/api/auth/login", "status_code": 200, "duration_ms": 208.28, "user_id": null}
+INFO:     127.0.0.1:65244 - "GET /api/conversations HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:30:15,228", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-81", "event": "request", "method": "GET", "path": "/api/conversations", "status_code": 200, "duration_ms": 2.01, "user_id": null}
+INFO:     127.0.0.1:65247 - "GET /api/conversations HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:30:15,231", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-82", "event": "request", "method": "GET", "path": "/api/conversations", "status_code": 200, "duration_ms": 0.96, "user_id": null}
+INFO:     127.0.0.1:65251 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:30:44,371", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-83", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 5.76, "user_id": null}
+INFO:     127.0.0.1:65257 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:30:44,386", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-85", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 11.01, "user_id": null}
+INFO:     127.0.0.1:65255 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:30:44,386", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-84", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 12.38, "user_id": null}
+INFO:     127.0.0.1:65260 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:30:44,391", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-86", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 2.27, "user_id": null}
+Multiple definitions in dictionary at byte 0x72dec for key /Info
+Multiple definitions in dictionary at byte 0x72df8 for key /Info
+INFO:     127.0.0.1:65264 - "POST /api/documents HTTP/1.1" 400 Bad Request
+{"timestamp": "2026-10-28 21:31:13,469", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-87", "event": "request", "method": "POST", "path": "/api/documents", "status_code": 400, "duration_ms": 31.35, "user_id": null}
+INFO:     127.0.0.1:65296 - "GET /api/auth/me HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:33:30,560", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-88", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 200, "duration_ms": 14.41, "user_id": null}
+INFO:     127.0.0.1:65298 - "GET /api/auth/me HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:33:30,563", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-89", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 200, "duration_ms": 1.34, "user_id": null}
+INFO:     127.0.0.1:65300 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:33:30,569", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-90", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 2.32, "user_id": null}
+INFO:     127.0.0.1:65304 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:33:30,576", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-92", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 2.85, "user_id": null}
+INFO:     127.0.0.1:65302 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:33:30,576", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-91", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 4.15, "user_id": null}
+INFO:     127.0.0.1:65307 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:33:30,583", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-93", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 2.04, "user_id": null}
+Multiple definitions in dictionary at byte 0x7841a for key /Info
+Multiple definitions in dictionary at byte 0x78426 for key /Info
+INFO:     127.0.0.1:49264 - "POST /api/documents HTTP/1.1" 400 Bad Request
+{"timestamp": "2026-10-28 21:48:04,323", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-94", "event": "request", "method": "POST", "path": "/api/documents", "status_code": 400, "duration_ms": 16.73, "user_id": null}
+Multiple definitions in dictionary at byte 0x1320b7 for key /Info
+Multiple definitions in dictionary at byte 0x1320c4 for key /Info
+INFO:     127.0.0.1:49291 - "POST /api/documents HTTP/1.1" 400 Bad Request
+{"timestamp": "2026-10-28 21:52:26,249", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-95", "event": "request", "method": "POST", "path": "/api/documents", "status_code": 400, "duration_ms": 19.17, "user_id": null}
+INFO:     127.0.0.1:49398 - "POST /api/documents HTTP/1.1" 201 Created
+{"timestamp": "2026-10-28 21:58:11,891", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-96", "event": "request", "method": "POST", "path": "/api/documents", "status_code": 201, "duration_ms": 871.7, "user_id": null}
+INFO:     127.0.0.1:49401 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:58:11,916", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-97", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 3.04, "user_id": null}
+INFO:     127.0.0.1:49404 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:58:11,921", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-98", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 0.79, "user_id": null}
+INFO:     127.0.0.1:49408 - "DELETE /api/documents/11 HTTP/1.1" 204 No Content
+{"timestamp": "2026-10-28 21:58:31,918", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-99", "event": "request", "method": "DELETE", "path": "/api/documents/11", "status_code": 204, "duration_ms": 37.57, "user_id": null}
+INFO:     127.0.0.1:49411 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:58:31,924", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-100", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 2.19, "user_id": null}
+INFO:     127.0.0.1:49414 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 21:58:31,930", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-101", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 2.17, "user_id": null}
+INFO:     127.0.0.1:49630 - "GET /api/auth/me HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 22:15:23,275", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-102", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 200, "duration_ms": 14.19, "user_id": null}
+INFO:     127.0.0.1:49632 - "GET /api/auth/me HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 22:15:23,281", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-103", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 200, "duration_ms": 3.36, "user_id": null}
+INFO:     127.0.0.1:49634 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 22:15:23,291", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-104", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 6.19, "user_id": null}
+INFO:     127.0.0.1:49637 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 22:15:23,298", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-105", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 3.9, "user_id": null}
+INFO:     127.0.0.1:49638 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 22:15:23,300", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-106", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 4.67, "user_id": null}
+INFO:     127.0.0.1:49640 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 22:15:23,306", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-107", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 3.12, "user_id": null}
+INFO:     127.0.0.1:49648 - "GET /api/auth/me HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 22:15:23,468", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-108", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 200, "duration_ms": 2.78, "user_id": null}
+INFO:     127.0.0.1:49650 - "GET /api/auth/me HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 22:15:23,472", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-109", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 200, "duration_ms": 1.35, "user_id": null}
+INFO:     127.0.0.1:49652 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 22:15:23,475", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-110", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 2.82, "user_id": null}
+INFO:     127.0.0.1:49656 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 22:15:23,478", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-112", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 1.34, "user_id": null}
+INFO:     127.0.0.1:49655 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 22:15:23,479", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-111", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 2.21, "user_id": null}
+INFO:     127.0.0.1:49658 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-28 22:15:23,486", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-113", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 2.63, "user_id": null}
+INFO:     127.0.0.1:54350 - "POST /api/documents HTTP/1.1" 201 Created
+{"timestamp": "2026-10-29 10:45:50,704", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-114", "event": "request", "method": "POST", "path": "/api/documents", "status_code": 201, "duration_ms": 531.28, "user_id": null}
+INFO:     127.0.0.1:54353 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-29 10:45:50,712", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-115", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 1.33, "user_id": null}
+INFO:     127.0.0.1:54356 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-29 10:45:50,715", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-116", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 0.59, "user_id": null}
+INFO:     127.0.0.1:54359 - "POST /api/documents HTTP/1.1" 201 Created
+{"timestamp": "2026-10-29 10:45:50,791", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-117", "event": "request", "method": "POST", "path": "/api/documents", "status_code": 201, "duration_ms": 61.83, "user_id": null}
+INFO:     127.0.0.1:54362 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-29 10:45:50,793", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-118", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 0.8, "user_id": null}
+INFO:     127.0.0.1:54365 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-29 10:45:50,796", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-119", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 0.57, "user_id": null}
+INFO:     127.0.0.1:54368 - "POST /api/documents HTTP/1.1" 201 Created
+{"timestamp": "2026-10-29 10:45:50,856", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-120", "event": "request", "method": "POST", "path": "/api/documents", "status_code": 201, "duration_ms": 47.17, "user_id": null}
+INFO:     127.0.0.1:54371 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-29 10:45:50,859", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-121", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 1.01, "user_id": null}
+INFO:     127.0.0.1:54374 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-29 10:45:50,862", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-122", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 2.07, "user_id": null}
+INFO:     127.0.0.1:54408 - "GET /api/auth/me HTTP/1.1" 200 OK
+{"timestamp": "2026-10-29 10:46:42,694", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-123", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 200, "duration_ms": 6.45, "user_id": null}
+INFO:     127.0.0.1:54410 - "GET /api/auth/me HTTP/1.1" 200 OK
+{"timestamp": "2026-10-29 10:46:42,700", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-124", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 200, "duration_ms": 2.34, "user_id": null}
+INFO:     127.0.0.1:54412 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-29 10:46:42,706", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-125", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 3.16, "user_id": null}
+INFO:     127.0.0.1:54416 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-29 10:46:42,711", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-127", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 2.99, "user_id": null}
+INFO:     127.0.0.1:54415 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-29 10:46:42,711", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-126", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 3.99, "user_id": null}
+INFO:     127.0.0.1:54418 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-29 10:46:42,719", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-128", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 2.05, "user_id": null}
+INFO:     127.0.0.1:54421 - "GET /api/conversations HTTP/1.1" 200 OK
+{"timestamp": "2026-10-29 10:46:46,477", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-129", "event": "request", "method": "GET", "path": "/api/conversations", "status_code": 200, "duration_ms": 5.9, "user_id": null}
+INFO:     127.0.0.1:54424 - "GET /api/conversations HTTP/1.1" 200 OK
+{"timestamp": "2026-10-29 10:46:46,487", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-130", "event": "request", "method": "GET", "path": "/api/conversations", "status_code": 200, "duration_ms": 3.39, "user_id": null}
+INFO:     127.0.0.1:54427 - "GET /api/conversations/3/messages HTTP/1.1" 200 OK
+{"timestamp": "2026-10-29 10:46:47,830", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-131", "event": "request", "method": "GET", "path": "/api/conversations/3/messages", "status_code": 200, "duration_ms": 5.58, "user_id": null}
+{"timestamp": "2026-10-29 10:47:08,132", "level": "INFO", "logger": "campusgpt", "message": "chat_request", "lineno": 35, "funcName": "_prepare_chat", "taskName": "Task-132", "event": "chat_request", "user_id": 1, "question": "what are the courses offered in bachelor?", "conversation_id": 3}
+{"timestamp": "2026-10-29 10:47:08,361", "level": "INFO", "logger": "campusgpt", "message": "retrieval", "lineno": 46, "funcName": "log_retrieval", "taskName": "Task-132", "event": "retrieval", "query": "what are the courses offered in bachelor?", "top_k": 6, "num_results": 6, "persist_dir": "data/chroma"}
+INFO:     127.0.0.1:54431 - "POST /api/chat/stream HTTP/1.1" 200 OK
+{"timestamp": "2026-10-29 10:47:35,212", "level": "INFO", "logger": "campusgpt", "message": "chat_response", "lineno": 60, "funcName": "log_chat_response", "taskName": "starlette.responses.StreamingResponse.__call__.<locals>.wrap", "event": "chat_response", "user_id": 1, "refused": false, "citations_count": 3, "warning": null}
+{"timestamp": "2026-10-29 10:47:35,222", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-132", "event": "request", "method": "POST", "path": "/api/chat/stream", "status_code": 200, "duration_ms": 27094.5, "user_id": null}
+INFO:     127.0.0.1:55831 - "GET /api/auth/me HTTP/1.1" 200 OK
+{"timestamp": "2026-10-29 12:35:46,560", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-136", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 200, "duration_ms": 16.49, "user_id": null}
+INFO:     127.0.0.1:55833 - "GET /api/auth/me HTTP/1.1" 200 OK
+{"timestamp": "2026-10-29 12:35:46,564", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-137", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 200, "duration_ms": 2.24, "user_id": null}
+INFO:     127.0.0.1:55839 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-29 12:35:46,573", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-138", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 3.73, "user_id": null}
+INFO:     127.0.0.1:55842 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-29 12:35:46,586", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-139", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 9.71, "user_id": null}
+INFO:     127.0.0.1:55845 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-29 12:35:46,588", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-140", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 6.78, "user_id": null}
+INFO:     127.0.0.1:55849 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-29 12:35:46,592", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-141", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 1.56, "user_id": null}
+INFO:     127.0.0.1:55851 - "GET /api/auth/me HTTP/1.1" 200 OK
+{"timestamp": "2026-10-29 12:35:46,612", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-142", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 200, "duration_ms": 0.99, "user_id": null}
+INFO:     127.0.0.1:55853 - "GET /api/auth/me HTTP/1.1" 200 OK
+{"timestamp": "2026-10-29 12:35:46,614", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-143", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 200, "duration_ms": 0.98, "user_id": null}
+INFO:     127.0.0.1:55855 - "GET /api/conversations HTTP/1.1" 200 OK
+{"timestamp": "2026-10-29 12:35:46,621", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-144", "event": "request", "method": "GET", "path": "/api/conversations", "status_code": 200, "duration_ms": 1.66, "user_id": null}
+INFO:     127.0.0.1:55857 - "GET /api/conversations HTTP/1.1" 200 OK
+{"timestamp": "2026-10-29 12:35:46,624", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-145", "event": "request", "method": "GET", "path": "/api/conversations", "status_code": 200, "duration_ms": 1.68, "user_id": null}
+INFO:     127.0.0.1:55014 - "GET /api/auth/me HTTP/1.1" 200 OK
+{"timestamp": "2026-10-30 21:26:26,932", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-146", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 200, "duration_ms": 64.66, "user_id": null}
+INFO:     127.0.0.1:55019 - "GET /api/auth/me HTTP/1.1" 200 OK
+{"timestamp": "2026-10-30 21:26:26,933", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-147", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 200, "duration_ms": 10.23, "user_id": null}
+INFO:     127.0.0.1:55023 - "GET /api/auth/me HTTP/1.1" 200 OK
+{"timestamp": "2026-10-30 21:26:26,939", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-149", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 200, "duration_ms": 3.96, "user_id": null}
+INFO:     127.0.0.1:55021 - "GET /api/auth/me HTTP/1.1" 200 OK
+{"timestamp": "2026-10-30 21:26:26,939", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-148", "event": "request", "method": "GET", "path": "/api/auth/me", "status_code": 200, "duration_ms": 4.47, "user_id": null}
+INFO:     127.0.0.1:55025 - "GET /api/conversations HTTP/1.1" 200 OK
+{"timestamp": "2026-10-30 21:26:26,953", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-150", "event": "request", "method": "GET", "path": "/api/conversations", "status_code": 200, "duration_ms": 12.11, "user_id": null}
+INFO:     127.0.0.1:55028 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-30 21:26:26,954", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-151", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 8.78, "user_id": null}
+INFO:     127.0.0.1:55036 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-30 21:26:26,981", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-154", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 9.01, "user_id": null}
+INFO:     127.0.0.1:55035 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-30 21:26:26,983", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-153", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 12.38, "user_id": null}
+INFO:     127.0.0.1:55032 - "GET /api/conversations HTTP/1.1" 200 OK
+{"timestamp": "2026-10-30 21:26:26,986", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-152", "event": "request", "method": "GET", "path": "/api/conversations", "status_code": 200, "duration_ms": 15.49, "user_id": null}
+INFO:     127.0.0.1:55039 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-30 21:26:26,992", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-155", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 2.58, "user_id": null}
+INFO:     127.0.0.1:58053 - "GET /api/conversations/3/messages HTTP/1.1" 200 OK
+{"timestamp": "2026-10-31 06:36:26,187", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-156", "event": "request", "method": "GET", "path": "/api/conversations/3/messages", "status_code": 200, "duration_ms": 29.28, "user_id": null}
+{"timestamp": "2026-10-31 06:36:51,164", "level": "INFO", "logger": "campusgpt", "message": "chat_request", "lineno": 35, "funcName": "_prepare_chat", "taskName": "Task-157", "event": "chat_request", "user_id": 1, "question": "what is the correspondig fees of bachelor and mster", "conversation_id": 3}
+{"timestamp": "2026-10-31 06:36:52,561", "level": "INFO", "logger": "campusgpt", "message": "retrieval", "lineno": 46, "funcName": "log_retrieval", "taskName": "Task-157", "event": "retrieval", "query": "what is the correspondig fees of bachelor and mster", "top_k": 6, "num_results": 6, "persist_dir": "data/chroma"}
+INFO:     127.0.0.1:58146 - "POST /api/chat/stream HTTP/1.1" 200 OK
+{"timestamp": "2026-10-31 06:36:58,759", "level": "INFO", "logger": "campusgpt", "message": "chat_response", "lineno": 60, "funcName": "log_chat_response", "taskName": "starlette.responses.StreamingResponse.__call__.<locals>.wrap", "event": "chat_response", "user_id": 1, "refused": false, "citations_count": 0, "warning": null}
+{"timestamp": "2026-10-31 06:36:58,763", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-157", "event": "request", "method": "POST", "path": "/api/chat/stream", "status_code": 200, "duration_ms": 7616.49, "user_id": null}
+{"timestamp": "2026-10-31 06:37:13,446", "level": "INFO", "logger": "campusgpt", "message": "chat_request", "lineno": 35, "funcName": "_prepare_chat", "taskName": "Task-161", "event": "chat_request", "user_id": 1, "question": "fee structure", "conversation_id": 3}
+{"timestamp": "2026-10-31 06:37:13,710", "level": "INFO", "logger": "campusgpt", "message": "retrieval", "lineno": 46, "funcName": "log_retrieval", "taskName": "Task-161", "event": "retrieval", "query": "fee structure", "top_k": 6, "num_results": 6, "persist_dir": "data/chroma"}
+INFO:     127.0.0.1:58369 - "POST /api/chat/stream HTTP/1.1" 200 OK
+{"timestamp": "2026-10-31 06:37:21,550", "level": "INFO", "logger": "campusgpt", "message": "chat_response", "lineno": 60, "funcName": "log_chat_response", "taskName": "starlette.responses.StreamingResponse.__call__.<locals>.wrap", "event": "chat_response", "user_id": 1, "refused": false, "citations_count": 4, "warning": null}
+{"timestamp": "2026-10-31 06:37:21,554", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-161", "event": "request", "method": "POST", "path": "/api/chat/stream", "status_code": 200, "duration_ms": 8119.35, "user_id": null}
+{"timestamp": "2026-10-31 06:37:27,215", "level": "INFO", "logger": "campusgpt", "message": "chat_request", "lineno": 35, "funcName": "_prepare_chat", "taskName": "Task-165", "event": "chat_request", "user_id": 1, "question": "what is the name of director?", "conversation_id": 3}
+{"timestamp": "2026-10-31 06:37:27,510", "level": "INFO", "logger": "campusgpt", "message": "retrieval", "lineno": 46, "funcName": "log_retrieval", "taskName": "Task-165", "event": "retrieval", "query": "what is the name of director?", "top_k": 6, "num_results": 6, "persist_dir": "data/chroma"}
+{"timestamp": "2026-10-31 06:37:27,511", "level": "INFO", "logger": "campusgpt", "message": "chat_response", "lineno": 60, "funcName": "log_chat_response", "taskName": "Task-165", "event": "chat_response", "user_id": 1, "refused": true, "citations_count": 0, "warning": null}
+INFO:     127.0.0.1:58496 - "POST /api/chat/stream HTTP/1.1" 200 OK
+{"timestamp": "2026-10-31 06:37:27,514", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-165", "event": "request", "method": "POST", "path": "/api/chat/stream", "status_code": 200, "duration_ms": 307.76, "user_id": null}
+{"timestamp": "2026-10-31 06:37:39,995", "level": "INFO", "logger": "campusgpt", "message": "chat_request", "lineno": 35, "funcName": "_prepare_chat", "taskName": "Task-167", "event": "chat_request", "user_id": 1, "question": "what is the fee of mtech and btech", "conversation_id": 3}
+{"timestamp": "2026-10-31 06:37:40,153", "level": "INFO", "logger": "campusgpt", "message": "retrieval", "lineno": 46, "funcName": "log_retrieval", "taskName": "Task-167", "event": "retrieval", "query": "what is the fee of mtech and btech", "top_k": 6, "num_results": 6, "persist_dir": "data/chroma"}
+INFO:     127.0.0.1:58596 - "POST /api/chat/stream HTTP/1.1" 200 OK
+{"timestamp": "2026-10-31 06:37:43,195", "level": "INFO", "logger": "campusgpt", "message": "chat_response", "lineno": 60, "funcName": "log_chat_response", "taskName": "starlette.responses.StreamingResponse.__call__.<locals>.wrap", "event": "chat_response", "user_id": 1, "refused": false, "citations_count": 0, "warning": null}
+{"timestamp": "2026-10-31 06:37:43,197", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-167", "event": "request", "method": "POST", "path": "/api/chat/stream", "status_code": 200, "duration_ms": 3210.89, "user_id": null}
+{"timestamp": "2026-10-31 06:38:31,224", "level": "INFO", "logger": "campusgpt", "message": "chat_request", "lineno": 35, "funcName": "_prepare_chat", "taskName": "Task-171", "event": "chat_request", "user_id": 1, "question": "what is the subjects offered in mtch", "conversation_id": 3}
+{"timestamp": "2026-10-31 06:38:31,427", "level": "INFO", "logger": "campusgpt", "message": "retrieval", "lineno": 46, "funcName": "log_retrieval", "taskName": "Task-171", "event": "retrieval", "query": "what is the subjects offered in mtch", "top_k": 6, "num_results": 6, "persist_dir": "data/chroma"}
+{"timestamp": "2026-10-31 06:38:31,427", "level": "INFO", "logger": "campusgpt", "message": "chat_response", "lineno": 60, "funcName": "log_chat_response", "taskName": "Task-171", "event": "chat_response", "user_id": 1, "refused": true, "citations_count": 0, "warning": null}
+INFO:     127.0.0.1:58950 - "POST /api/chat/stream HTTP/1.1" 200 OK
+{"timestamp": "2026-10-31 06:38:31,433", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-171", "event": "request", "method": "POST", "path": "/api/chat/stream", "status_code": 200, "duration_ms": 220.66, "user_id": null}
+{"timestamp": "2026-10-31 06:38:57,792", "level": "INFO", "logger": "campusgpt", "message": "chat_request", "lineno": 35, "funcName": "_prepare_chat", "taskName": "Task-173", "event": "chat_request", "user_id": 1, "question": "what are the cources the college offer?", "conversation_id": 3}
+{"timestamp": "2026-10-31 06:38:57,968", "level": "INFO", "logger": "campusgpt", "message": "retrieval", "lineno": 46, "funcName": "log_retrieval", "taskName": "Task-173", "event": "retrieval", "query": "what are the cources the college offer?", "top_k": 6, "num_results": 6, "persist_dir": "data/chroma"}
+INFO:     127.0.0.1:59077 - "POST /api/chat/stream HTTP/1.1" 200 OK
+{"timestamp": "2026-10-31 06:39:03,429", "level": "INFO", "logger": "campusgpt", "message": "chat_response", "lineno": 60, "funcName": "log_chat_response", "taskName": "starlette.responses.StreamingResponse.__call__.<locals>.wrap", "event": "chat_response", "user_id": 1, "refused": false, "citations_count": 0, "warning": null}
+{"timestamp": "2026-10-31 06:39:03,434", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-173", "event": "request", "method": "POST", "path": "/api/chat/stream", "status_code": 200, "duration_ms": 5649.51, "user_id": null}
+{"timestamp": "2026-10-31 06:39:33,733", "level": "INFO", "logger": "campusgpt", "message": "chat_request", "lineno": 35, "funcName": "_prepare_chat", "taskName": "Task-177", "event": "chat_request", "user_id": 1, "question": "subjects in masters", "conversation_id": 3}
+{"timestamp": "2026-10-31 06:39:34,036", "level": "INFO", "logger": "campusgpt", "message": "retrieval", "lineno": 46, "funcName": "log_retrieval", "taskName": "Task-177", "event": "retrieval", "query": "subjects in masters", "top_k": 6, "num_results": 6, "persist_dir": "data/chroma"}
+INFO:     127.0.0.1:59257 - "POST /api/chat/stream HTTP/1.1" 200 OK
+{"timestamp": "2026-10-31 06:39:47,177", "level": "INFO", "logger": "campusgpt", "message": "chat_response", "lineno": 60, "funcName": "log_chat_response", "taskName": "starlette.responses.StreamingResponse.__call__.<locals>.wrap", "event": "chat_response", "user_id": 1, "refused": false, "citations_count": 1, "warning": null}
+{"timestamp": "2026-10-31 06:39:47,182", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-177", "event": "request", "method": "POST", "path": "/api/chat/stream", "status_code": 200, "duration_ms": 13456.87, "user_id": null}
+INFO:     127.0.0.1:59429 - "GET /api/conversations/12/messages HTTP/1.1" 200 OK
+{"timestamp": "2026-10-31 06:40:29,324", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-181", "event": "request", "method": "GET", "path": "/api/conversations/12/messages", "status_code": 200, "duration_ms": 20.19, "user_id": null}
+INFO:     127.0.0.1:59432 - "POST /api/auth/logout HTTP/1.1" 204 No Content
+{"timestamp": "2026-10-31 06:40:34,571", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-182", "event": "request", "method": "POST", "path": "/api/auth/logout", "status_code": 204, "duration_ms": 9.02, "user_id": null}
+INFO:     127.0.0.1:59448 - "POST /api/auth/login HTTP/1.1" 401 Unauthorized
+{"timestamp": "2026-10-31 06:41:07,517", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-183", "event": "request", "method": "POST", "path": "/api/auth/login", "status_code": 401, "duration_ms": 210.8, "user_id": null}
+INFO:     127.0.0.1:59454 - "POST /api/auth/login HTTP/1.1" 200 OK
+{"timestamp": "2026-10-31 06:41:12,133", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-184", "event": "request", "method": "POST", "path": "/api/auth/login", "status_code": 200, "duration_ms": 217.95, "user_id": null}
+INFO:     127.0.0.1:59457 - "GET /api/conversations HTTP/1.1" 200 OK
+{"timestamp": "2026-10-31 06:41:12,157", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-185", "event": "request", "method": "GET", "path": "/api/conversations", "status_code": 200, "duration_ms": 4.43, "user_id": null}
+INFO:     127.0.0.1:59460 - "GET /api/conversations HTTP/1.1" 200 OK
+{"timestamp": "2026-10-31 06:41:12,162", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-186", "event": "request", "method": "GET", "path": "/api/conversations", "status_code": 200, "duration_ms": 2.41, "user_id": null}
+INFO:     127.0.0.1:59466 - "POST /api/conversations HTTP/1.1" 201 Created
+{"timestamp": "2026-10-31 06:41:15,517", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-187", "event": "request", "method": "POST", "path": "/api/conversations", "status_code": 201, "duration_ms": 11.3, "user_id": null}
+{"timestamp": "2026-10-31 06:41:23,312", "level": "INFO", "logger": "campusgpt", "message": "chat_request", "lineno": 35, "funcName": "_prepare_chat", "taskName": "Task-188", "event": "chat_request", "user_id": 1, "question": "what is the fee structre?", "conversation_id": 14}
+{"timestamp": "2026-10-31 06:41:23,684", "level": "INFO", "logger": "campusgpt", "message": "retrieval", "lineno": 46, "funcName": "log_retrieval", "taskName": "Task-188", "event": "retrieval", "query": "what is the fee structre?", "top_k": 6, "num_results": 6, "persist_dir": "data/chroma"}
+INFO:     127.0.0.1:59470 - "POST /api/chat/stream HTTP/1.1" 200 OK
+{"timestamp": "2026-10-31 06:41:28,967", "level": "INFO", "logger": "campusgpt", "message": "chat_response", "lineno": 60, "funcName": "log_chat_response", "taskName": "starlette.responses.StreamingResponse.__call__.<locals>.wrap", "event": "chat_response", "user_id": 1, "refused": false, "citations_count": 4, "warning": null}
+{"timestamp": "2026-10-31 06:41:28,974", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-188", "event": "request", "method": "POST", "path": "/api/chat/stream", "status_code": 200, "duration_ms": 5668.7, "user_id": null}
+{"timestamp": "2026-10-31 06:41:39,246", "level": "INFO", "logger": "campusgpt", "message": "chat_request", "lineno": 35, "funcName": "_prepare_chat", "taskName": "Task-192", "event": "chat_request", "user_id": 1, "question": "sum of oceall fee and sum of digits", "conversation_id": 14}
+{"timestamp": "2026-10-31 06:41:39,442", "level": "INFO", "logger": "campusgpt", "message": "retrieval", "lineno": 46, "funcName": "log_retrieval", "taskName": "Task-192", "event": "retrieval", "query": "sum of oceall fee and sum of digits", "top_k": 6, "num_results": 6, "persist_dir": "data/chroma"}
+INFO:     127.0.0.1:59482 - "POST /api/chat/stream HTTP/1.1" 200 OK
+{"timestamp": "2026-10-31 06:41:41,897", "level": "INFO", "logger": "campusgpt", "message": "chat_response", "lineno": 60, "funcName": "log_chat_response", "taskName": "starlette.responses.StreamingResponse.__call__.<locals>.wrap", "event": "chat_response", "user_id": 1, "refused": false, "citations_count": 0, "warning": null}
+{"timestamp": "2026-10-31 06:41:41,900", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-192", "event": "request", "method": "POST", "path": "/api/chat/stream", "status_code": 200, "duration_ms": 2659.83, "user_id": null}
+{"timestamp": "2026-10-31 06:41:47,228", "level": "INFO", "logger": "campusgpt", "message": "chat_request", "lineno": 35, "funcName": "_prepare_chat", "taskName": "Task-196", "event": "chat_request", "user_id": 1, "question": "total fee", "conversation_id": 14}
+{"timestamp": "2026-10-31 06:41:47,395", "level": "INFO", "logger": "campusgpt", "message": "retrieval", "lineno": 46, "funcName": "log_retrieval", "taskName": "Task-196", "event": "retrieval", "query": "total fee", "top_k": 6, "num_results": 6, "persist_dir": "data/chroma"}
+INFO:     127.0.0.1:59492 - "POST /api/chat/stream HTTP/1.1" 200 OK
+{"timestamp": "2026-10-31 06:41:55,055", "level": "INFO", "logger": "campusgpt", "message": "chat_response", "lineno": 60, "funcName": "log_chat_response", "taskName": "starlette.responses.StreamingResponse.__call__.<locals>.wrap", "event": "chat_response", "user_id": 1, "refused": false, "citations_count": 4, "warning": null}
+{"timestamp": "2026-10-31 06:41:55,060", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-196", "event": "request", "method": "POST", "path": "/api/chat/stream", "status_code": 200, "duration_ms": 7839.94, "user_id": null}
+INFO:     127.0.0.1:59503 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-31 06:41:57,805", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-200", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 6.94, "user_id": null}
+INFO:     127.0.0.1:59506 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-31 06:41:57,816", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-201", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 8.35, "user_id": null}
+INFO:     127.0.0.1:59509 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-31 06:41:57,817", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-202", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 7.28, "user_id": null}
+INFO:     127.0.0.1:59512 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-31 06:41:57,824", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-203", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 4.24, "user_id": null}
+INFO:     127.0.0.1:59538 - "POST /api/admin/users HTTP/1.1" 201 Created
+{"timestamp": "2026-10-31 06:42:10,329", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-204", "event": "request", "method": "POST", "path": "/api/admin/users", "status_code": 201, "duration_ms": 210.24, "user_id": null}
+INFO:     127.0.0.1:59541 - "GET /api/documents HTTP/1.1" 200 OK
+{"timestamp": "2026-10-31 06:42:10,337", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-205", "event": "request", "method": "GET", "path": "/api/documents", "status_code": 200, "duration_ms": 2.59, "user_id": null}
+INFO:     127.0.0.1:59544 - "GET /api/admin/users HTTP/1.1" 200 OK
+{"timestamp": "2026-10-31 06:42:10,341", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-206", "event": "request", "method": "GET", "path": "/api/admin/users", "status_code": 200, "duration_ms": 1.48, "user_id": null}
+INFO:     127.0.0.1:59547 - "POST /api/auth/logout HTTP/1.1" 204 No Content
+{"timestamp": "2026-10-31 06:42:12,952", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-207", "event": "request", "method": "POST", "path": "/api/auth/logout", "status_code": 204, "duration_ms": 1.97, "user_id": null}
+INFO:     127.0.0.1:59551 - "POST /api/auth/login HTTP/1.1" 200 OK
+{"timestamp": "2026-10-31 06:42:22,417", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-208", "event": "request", "method": "POST", "path": "/api/auth/login", "status_code": 200, "duration_ms": 208.42, "user_id": null}
+INFO:     127.0.0.1:59554 - "GET /api/conversations HTTP/1.1" 200 OK
+{"timestamp": "2026-10-31 06:42:22,426", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-209", "event": "request", "method": "GET", "path": "/api/conversations", "status_code": 200, "duration_ms": 1.86, "user_id": null}
+INFO:     127.0.0.1:59557 - "GET /api/conversations HTTP/1.1" 200 OK
+{"timestamp": "2026-10-31 06:42:22,432", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-210", "event": "request", "method": "GET", "path": "/api/conversations", "status_code": 200, "duration_ms": 1.6, "user_id": null}
+{"timestamp": "2026-10-31 06:42:36,415", "level": "INFO", "logger": "campusgpt", "message": "chat_request", "lineno": 35, "funcName": "_prepare_chat", "taskName": "Task-211", "event": "chat_request", "user_id": 8, "question": "what are the subjects in btech?", "conversation_id": null}
+{"timestamp": "2026-10-31 06:42:36,725", "level": "INFO", "logger": "campusgpt", "message": "retrieval", "lineno": 46, "funcName": "log_retrieval", "taskName": "Task-211", "event": "retrieval", "query": "what are the subjects in btech?", "top_k": 6, "num_results": 6, "persist_dir": "data/chroma"}
+INFO:     127.0.0.1:59562 - "POST /api/chat/stream HTTP/1.1" 200 OK
+{"timestamp": "2026-10-31 06:42:49,621", "level": "INFO", "logger": "campusgpt", "message": "chat_response", "lineno": 60, "funcName": "log_chat_response", "taskName": "starlette.responses.StreamingResponse.__call__.<locals>.wrap", "event": "chat_response", "user_id": 8, "refused": false, "citations_count": 1, "warning": null}
+{"timestamp": "2026-10-31 06:42:49,625", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-211", "event": "request", "method": "POST", "path": "/api/chat/stream", "status_code": 200, "duration_ms": 13225.73, "user_id": null}
+INFO:     127.0.0.1:59573 - "GET /api/conversations HTTP/1.1" 200 OK
+{"timestamp": "2026-10-31 06:42:49,642", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-215", "event": "request", "method": "GET", "path": "/api/conversations", "status_code": 200, "duration_ms": 2.3, "user_id": null}
+{"timestamp": "2026-10-31 06:43:06,924", "level": "INFO", "logger": "campusgpt", "message": "chat_request", "lineno": 35, "funcName": "_prepare_chat", "taskName": "Task-216", "event": "chat_request", "user_id": 8, "question": "tell me the total cources it offer", "conversation_id": 15}
+{"timestamp": "2026-10-31 06:43:07,143", "level": "INFO", "logger": "campusgpt", "message": "retrieval", "lineno": 46, "funcName": "log_retrieval", "taskName": "Task-216", "event": "retrieval", "query": "tell me the total cources it offer", "top_k": 6, "num_results": 6, "persist_dir": "data/chroma"}
+INFO:     127.0.0.1:59579 - "POST /api/chat/stream HTTP/1.1" 200 OK
+{"timestamp": "2026-10-31 06:43:09,756", "level": "INFO", "logger": "campusgpt", "message": "chat_response", "lineno": 60, "funcName": "log_chat_response", "taskName": "starlette.responses.StreamingResponse.__call__.<locals>.wrap", "event": "chat_response", "user_id": 8, "refused": false, "citations_count": 0, "warning": null}
+{"timestamp": "2026-10-31 06:43:09,758", "level": "INFO", "logger": "campusgpt", "message": "request", "lineno": 105, "funcName": "__call__", "taskName": "Task-216", "event": "request", "method": "POST", "path": "/api/chat/stream", "status_code": 200, "duration_ms": 2846.53, "user_id": null}

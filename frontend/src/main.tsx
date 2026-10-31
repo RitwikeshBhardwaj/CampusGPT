@@ -7,6 +7,7 @@ import {
   Routes,
 } from 'react-router-dom'
 import { AuthProvider, useAuth } from './auth'
+import './styles.css'
 import { Login } from './pages/Login'
 import { Chat } from './pages/Chat'
 import { Admin } from './pages/Admin'

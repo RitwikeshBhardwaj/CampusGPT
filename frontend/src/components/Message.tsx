@@ -24,25 +24,18 @@ export function Message({ message }: MessageProps) {
   }
 
   return (
-    <div style={{
-      padding: 8,
-      borderRadius: 6,
-      background: isRefusal ? "#fff8e1" : undefined,
-      border: isRefusal ? "1px solid #ffcc02" : undefined,
-      marginBottom: 8,
-    }}>
-      <p style={{ whiteSpace: "pre-wrap" }}>{message.content}</p>
+    <div className={isRefusal ? "bubble refusal" : "bubble"}>
+      <p>{message.content}</p>
       {citations.length > 0 && (
-        <div style={{ marginTop: 4 }}>
+        <div className="citations">
           {citations.map((c) => (
             <CitationChip key={c.number} citation={c} />
           ))}
         </div>
       )}
-      {isRefusal && message.citations_json && (
-        <div style={{ marginTop: 6, fontSize: 13, color: "#555" }}>
-          Closest source:{" "}
-          <CitationChip citation={citations[0]} />
+      {isRefusal && citations[0] && (
+        <div className="closest">
+          Closest source: <CitationChip citation={citations[0]} />
         </div>
       )}
     </div>

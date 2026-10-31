@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "../auth"
-import * as api from "../api"
 
 export function Login() {
   const { login } = useAuth()
@@ -17,33 +16,38 @@ export function Login() {
       await login(username, password)
       navigate("/", { replace: true })
     } catch {
-      setError("Invalid username or password")
+      setError("That username and password didn't match.")
     }
   }
 
   return (
-    <div style={{ maxWidth: 360, margin: "4rem auto" }}>
-      <h1>CampusGPT</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Username</label>
+    <div className="login">
+      <form className="login-card glass" onSubmit={handleSubmit}>
+        <h1 className="wordmark">CampusGPT</h1>
+        <p className="tagline">Ask the university's own documents.</p>
+        <div className="field">
+          <label htmlFor="username">Username</label>
           <input
+            id="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            autoComplete="username"
             required
           />
         </div>
-        <div>
-          <label>Password</label>
+        <div className="field">
+          <label htmlFor="password">Password</label>
           <input
+            id="password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            autoComplete="current-password"
             required
           />
         </div>
-        {error && <p style={{ color: "red" }}>{error}</p>}
-        <button type="submit">Log in</button>
+        {error && <p className="form-error">{error}</p>}
+        <button className="primary" type="submit">Log in</button>
       </form>
     </div>
   )

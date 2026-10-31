@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.bootstrap import bootstrap_admin
 from app.config import settings
 from app.db import init_db
 from app.health import router as health_router
@@ -15,6 +16,7 @@ from app.routes_users import router as users_router
 def create_app() -> FastAPI:
     settings.ensure_dirs()
     init_db(settings.db_path)
+    bootstrap_admin()
 
     app = FastAPI(title="CampusGPT")
 

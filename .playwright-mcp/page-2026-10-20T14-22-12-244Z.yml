@@ -1,0 +1,10 @@
+- generic [ref=f2e4]:
+  - heading "CampusGPT" [level=1] [ref=f2e5]
+  - paragraph [ref=f2e6]: Ask the university's own documents.
+  - generic [ref=f2e7]:
+    - generic [ref=f2e8]: Username
+    - textbox "Username" [ref=f2e9]
+  - generic [ref=f2e10]:
+    - generic [ref=f2e11]: Password
+    - textbox "Password" [ref=f2e12]
+  - button "Log in" [ref=f2e13] [cursor=pointer]

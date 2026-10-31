@@ -43,10 +43,17 @@ export interface DocumentMeta {
   uploaded_at: string
 }
 
+export interface UploadResponse {
+  doc_id: number
+  filename: string
+  pages: number
+  chunks: number
+}
+
 async function jsonOrThrow<T>(resp: Response): Promise<T> {
   if (!resp.ok) {
     const text = await resp.text()
-    throw new Error(`${resp.status}: ${text}`)
+    throw new Error(`${resp.status}: ${text || resp.statusText}`)
   }
   return resp.json() as Promise<T>
 }
@@ -69,6 +76,45 @@ export async function login(username: string, password: string): Promise<User> {
 
 export async function logout(): Promise<void> {
   await fetch('/api/auth/logout', { method: 'POST', credentials: 'include' })
+}
+
+export interface StreamHandlers {
+  onToken: (text: string) => void
+  onFinal: (response: AnswerResponse) => void
+}
+
+export async function streamChat(
+  question: string,
+  conversation_id: number | null,
+  handlers: StreamHandlers
+): Promise<void> {
+  const resp = await fetch('/api/chat/stream', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+    body: JSON.stringify({ question, conversation_id }),
+  })
+  if (!resp.ok || !resp.body) {
+    throw new Error(`${resp.status}: ${await resp.text()}`)
+  }
+
+  const reader = resp.body.getReader()
+  const decoder = new TextDecoder()
+  let buffer = ''
+  for (;;) {
+    const { done, value } = await reader.read()
+    buffer += decoder.decode(value ?? new Uint8Array(), { stream: !done })
+    const frames = buffer.split('\n\n')
+    buffer = frames.pop() ?? ''
+    for (const frame of frames) {
+      const line = frame.split('\n').find((l) => l.startsWith('data: '))
+      if (!line) continue
+      const event = JSON.parse(line.slice('data: '.length))
+      if (event.type === 'token') handlers.onToken(event.text)
+      if (event.type === 'final') handlers.onFinal(event)
+    }
+    if (done) break
+  }
 }
 
 export async function sendChat(
@@ -102,6 +148,17 @@ export async function createConversation(title?: string): Promise<Conversation> 
   )
 }
 
+export async function renameConversation(id: number, title: string): Promise<Conversation> {
+  return jsonOrThrow<Conversation>(
+    await fetch(`/api/conversations/${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ title }),
+    })
+  )
+}
+
 export async function deleteConversation(id: number): Promise<void> {
   await fetch(`/api/conversations/${id}`, {
     method: 'DELETE',
@@ -123,7 +180,7 @@ export async function listDocuments(): Promise<DocumentMeta[]> {
   )
 }
 
-export async function uploadDocument(file: File): Promise<void> {
+export async function uploadDocument(file: File): Promise<UploadResponse> {
   const form = new FormData()
   form.append('file', file)
   const r = await fetch('/api/documents', {
@@ -131,9 +188,7 @@ export async function uploadDocument(file: File): Promise<void> {
     credentials: 'include',
     body: form,
   })
-  if (!r.ok) {
-    throw new Error(`Upload failed: ${r.status}`)
-  }
+  return jsonOrThrow<UploadResponse>(r)
 }
 
 export async function deleteDocument(id: number): Promise<void> {

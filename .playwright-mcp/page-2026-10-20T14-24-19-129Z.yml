@@ -1,0 +1,30 @@
+- generic [ref=f4e3]:
+  - generic [ref=f4e4]:
+    - heading "Admin" [level=1] [ref=f4e5]
+    - button "Back to chat" [ref=f4e6] [cursor=pointer]
+    - button "Log out" [ref=f4e7] [cursor=pointer]
+  - generic [ref=f4e8]:
+    - button "Documents" [ref=f4e9] [cursor=pointer]
+    - button "Users" [ref=f4e10] [cursor=pointer]
+  - generic [ref=f4e11]:
+    - heading "Documents" [level=2] [ref=f4e12]
+    - button "Upload a PDF" [ref=f4e13]
+    - list [ref=f4e14]:
+      - listitem [ref=f4e15]:
+        - generic [ref=f4e16]: fees.pdf — 1 pages, 1 chunks
+        - button "Delete" [ref=f4e17] [cursor=pointer]
+      - listitem [ref=f4e18]:
+        - generic [ref=f4e19]: catalog.pdf — 1 pages, 1 chunks
+        - button "Delete" [ref=f4e20] [cursor=pointer]
+      - listitem [ref=f4e21]:
+        - generic [ref=f4e22]: handbook.pdf — 2 pages, 4 chunks
+        - button "Delete" [ref=f4e23] [cursor=pointer]
+      - listitem [ref=f4e24]:
+        - generic [ref=f4e25]: Full Stack Engineering Intern - Morphle Labs (YC W20).docx.pdf — 4 pages, 5 chunks
+        - button "Delete" [ref=f4e26] [cursor=pointer]
+      - listitem [ref=f4e27]:
+        - generic [ref=f4e28]: mytest.pdf — 1 pages, 1 chunks
+        - button "Delete" [ref=f4e29] [cursor=pointer]
+      - listitem [ref=f4e30]:
+        - generic [ref=f4e31]: regulations.pdf — 2 pages, 2 chunks
+        - button "Delete" [ref=f4e32] [cursor=pointer]

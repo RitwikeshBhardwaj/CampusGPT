@@ -100,6 +100,55 @@ def test_user_cannot_see_other_users_conversations(tmp_path, monkeypatch):
     assert r2.json() == []
 
 
+def test_rename_own_conversation(tmp_path, monkeypatch):
+    app = _make_app(tmp_path, monkeypatch)
+    db = settings.db_path
+    _seed_user(db, "alice", "pw123")
+
+    client = _make_authenticated_client(app, "alice", "pw123")
+    conv_id = client.post("/api/conversations", json={}).json()["id"]
+
+    r = client.patch(f"/api/conversations/{conv_id}", json={"title": "  Library hours  "})
+    assert r.status_code == 200
+    assert r.json()["title"] == "Library hours"
+
+    listed = client.get("/api/conversations").json()
+    assert listed[0]["title"] == "Library hours"
+
+
+def test_rename_rejects_empty_title(tmp_path, monkeypatch):
+    app = _make_app(tmp_path, monkeypatch)
+    db = settings.db_path
+    _seed_user(db, "alice", "pw123")
+
+    client = _make_authenticated_client(app, "alice", "pw123")
+    conv_id = client.post("/api/conversations", json={"title": "Keep me"}).json()["id"]
+
+    for bad in ("", "   ", "x" * 121):
+        r = client.patch(f"/api/conversations/{conv_id}", json={"title": bad})
+        assert r.status_code == 400
+
+    listed = client.get("/api/conversations").json()
+    assert listed[0]["title"] == "Keep me"
+
+
+def test_cannot_rename_other_users_conversation(tmp_path, monkeypatch):
+    app = _make_app(tmp_path, monkeypatch)
+    db = settings.db_path
+    _seed_user(db, "alice", "pw123")
+    _seed_user(db, "bob", "pw123")
+
+    client1 = _make_authenticated_client(app, "alice", "pw123")
+    conv_id = client1.post("/api/conversations", json={"title": "Alice's"}).json()["id"]
+
+    client2 = _make_authenticated_client(app, "bob", "pw123")
+    r = client2.patch(f"/api/conversations/{conv_id}", json={"title": "Stolen"})
+    assert r.status_code == 404
+
+    listed = client1.get("/api/conversations").json()
+    assert listed[0]["title"] == "Alice's"
+
+
 def test_delete_own_conversation(tmp_path, monkeypatch):
     app = _make_app(tmp_path, monkeypatch)
     db = settings.db_path

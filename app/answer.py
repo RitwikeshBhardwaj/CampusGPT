@@ -1,3 +1,4 @@
+import json
 import re
 from dataclasses import dataclass
 from typing import Optional
@@ -89,6 +90,27 @@ async def _call_ollama(prompt: str) -> str:
         )
         resp.raise_for_status()
         return resp.json().get("response", "")
+
+
+async def stream_ollama(prompt: str):
+    """Yield answer text as Ollama produces it."""
+    async with httpx.AsyncClient(timeout=120.0) as client:
+        async with client.stream(
+            "POST",
+            f"{settings.ollama_url}/api/generate",
+            json={
+                "model": settings.ollama_model,
+                "prompt": prompt,
+                "stream": True,
+            },
+        ) as resp:
+            resp.raise_for_status()
+            async for line in resp.aiter_lines():
+                if not line:
+                    continue
+                token = json.loads(line).get("response", "")
+                if token:
+                    yield token
 
 
 def generate_answer(question: str, sources: list[Source]) -> AnswerResult:

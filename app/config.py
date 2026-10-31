@@ -28,10 +28,19 @@ class Settings(BaseSettings):
     def db_path(self) -> Path:
         return self.data_dir / "campusgpt.db"
 
-    @property
-    def secret_key(self) -> str:
-        # Stable per-install secret; can be overridden via env in production.
-        return self.admin_user + "_" + "campusgpt_session_secret"
+    SECRET_KEY: str = ""
+
+    model_config = SettingsConfigDict(env_prefix="CAMPUSGPT_", env_file=".env", extra="allow")
+
+    @classmethod
+    def get_secret_key(cls) -> str:
+        # First, check if SECRET_KEY is set in environment variables or .env
+        if cls.SECRET_KEY:
+            return cls.SECRET_KEY
+        # If not set, generate a random secret key (only for development)
+        import secrets
+        return secrets.token_urlsafe(32)
+
 
     def ensure_dirs(self) -> None:
         self.data_dir.mkdir(parents=True, exist_ok=True)

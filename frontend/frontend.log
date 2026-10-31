@@ -1,0 +1,17 @@
+
+> campusgpt-frontend@0.1.0 dev
+> vite
+
+Port 5173 is in use, trying another one...
+
+  VITE v5.4.21  ready in 111 ms
+
+  ➜  Local:   http://localhost:5174/
+  ➜  Network: use --host to expose
+7:34:13 am [vite] page reload index.html
+6:14:36 pm [vite] vite.config.ts changed, restarting server...
+6:14:37 pm [vite] server restarted.
+9:10:04 pm [vite] hmr update /src/auth.tsx, /src/pages/Chat.tsx, /src/pages/Admin.tsx
+9:10:04 pm [vite] hmr update /src/styles.css
+9:10:04 pm [vite] hmr update /src/pages/Admin.tsx
+9:10:44 pm [vite] hmr update /src/auth.tsx, /src/pages/Chat.tsx, /src/pages/Admin.tsx

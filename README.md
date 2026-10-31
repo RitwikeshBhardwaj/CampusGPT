@@ -8,6 +8,7 @@ Everything runs on your own machine: no cloud APIs, no data leaves your machine.
 
 - [Ollama](https://ollama.com) — to run the `llama3.1:8b` model locally.
 - Python 3.12+ and [Node.js](https://nodejs.org/) (for the React frontend).
+- [Tesseract OCR](https://github.com/tesseract-ocr/tesseract) with English language data — required for scanned PDFs. On macOS, install with `brew install tesseract`.
 
 ## Quick start (dev)
 
@@ -20,6 +21,7 @@ ollama serve
 
 # 3. Install and start the backend in another
 pip install -e ".[dev]"
+# Install Tesseract separately for OCR of scanned PDFs (macOS: brew install tesseract)
 CAMPUSGPT_ADMIN_USER=admin CAMPUSGPT_ADMIN_PASS=changeme uvicorn app.main:app --reload
 
 # 4. Start the React frontend
@@ -42,7 +44,11 @@ CAMPUSGPT_ADMIN_USER=admin CAMPUSGPT_ADMIN_PASS=changeme docker compose up --bui
 
 ## Configuration
 
-All settings are read from environment variables with the `CAMPUSGPT_` prefix:
+All settings are read from environment variables with the `CAMPUSGPT_` prefix. The following are mandatory for production:
+
+- `CAMPUSGPT_SESSION_SECRET`: Secret key for session management. **Do not derive this from other variables; use a dedicated secret management tool.**
+
+Optional variables include:
 
 | Variable | Default | Description |
 |---|---|---|
