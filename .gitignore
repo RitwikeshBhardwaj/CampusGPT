@@ -1,13 +1,54 @@
+# Python dependencies and caches
 .venv/
 __pycache__/
 *.pyc
-.pytest_cache/
-data/
-.env
 *.egg-info/
-dist/
+.pytest_cache/
+
+# Environment and secrets
+.env
+*.env.*
+
+# Build and distribution artifacts
 build/
+dist/
+
+# Frontend
 node_modules/
+frontend/node_modules/
 frontend/dist/
-.DS_Store
-.superpowers/
+
+# Local application logs
+*.log
+backend.log
+frontend/backend.log
+frontend/frontend.log
+frontend/ollama.log
+
+# Generated UI artifacts and screenshots
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+
+# Playwright browser automation state and logs
+.playwright-mcp/
+
+# Graphify output
+graphify-out/
+
+# Test/scratch files
+test.txt
+streaming-ui.png
+campusgpt-*.png
+
+# SQLite databases
+data/*.db
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Keep test documents (PDFs are test fixtures)
+!test_documents/
+!*.pdf
